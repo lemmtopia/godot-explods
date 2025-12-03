@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://scripts/game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://sprites/background/bg-back.png" type="Texture" id=3]
-[ext_resource path="res://sounds/explosion.wav" type="Sample" id=4]
-[ext_resource path="res://sounds/hit.wav" type="Sample" id=5]
-[ext_resource path="res://sounds/shoot.wav" type="Sample" id=6]
+[ext_resource path="res://sprites/background/bg-stars.png" type="Texture" id=4]
+[ext_resource path="res://sprites/background/bg-planet.png" type="Texture" id=5]
+[ext_resource path="res://sounds/explosion.wav" type="Sample" id=6]
+[ext_resource path="res://sounds/hit.wav" type="Sample" id=7]
+[ext_resource path="res://sounds/shoot.wav" type="Sample" id=8]
 
 [sub_resource type="SampleLibrary" id=1]
 
@@ -13,19 +15,19 @@ samples/explosion = {
 "db": 0.0,
 "pitch": 1.0,
 "priority": 0,
-"sample": ExtResource( 4 )
+"sample": ExtResource( 6 )
 }
 samples/hit = {
 "db": 0.0,
 "pitch": 1.0,
 "priority": 0,
-"sample": ExtResource( 5 )
+"sample": ExtResource( 7 )
 }
 samples/shoot = {
 "db": 0.0,
 "pitch": 1.0,
 "priority": 0,
-"sample": ExtResource( 6 )
+"sample": ExtResource( 8 )
 }
 
 [node name="game" type="Node"]
@@ -43,6 +45,20 @@ z/z = 99
 
 transform/scale = Vector2( 1.17647, 1.125 )
 texture = ExtResource( 3 )
+centered = false
+
+[node name="background2" type="Sprite" parent="backgrounds"]
+
+transform/scale = Vector2( 1.17647, 1.125 )
+z/z = 1
+texture = ExtResource( 4 )
+centered = false
+
+[node name="background3" type="Sprite" parent="backgrounds"]
+
+transform/scale = Vector2( 1.17647, 1.125 )
+z/z = 2
+texture = ExtResource( 5 )
 centered = false
 
 [node name="samples" type="SamplePlayer" parent="."]
