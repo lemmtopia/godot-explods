@@ -11,6 +11,8 @@ const SHOTS_MAX = 5
 var motion = Vector2(0, 0)
 var last_fire = false
 
+signal fire_performed
+
 func _ready():
 	get_node("flash").set_hidden(true)
 	
@@ -48,5 +50,6 @@ func _process(delta):
 		shot.set_global_pos(get_global_pos() + Vector2(WIDTH / 2, 0))
 		
 		get_node("flash/anim").play("shoot")
+		emit_signal("fire_performed", self)
 	
 	last_fire = fire
