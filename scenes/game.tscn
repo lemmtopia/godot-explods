@@ -39,22 +39,22 @@ script/script = ExtResource( 1 )
 transform/pos = Vector2( 96, 90 )
 z/z = 99
 
-[node name="backgrounds" type="Node" parent="."]
+[node name="background" type="Node" parent="."]
 
-[node name="background1" type="Sprite" parent="backgrounds"]
+[node name="background1" type="Sprite" parent="background"]
 
 transform/scale = Vector2( 1.17647, 1.125 )
 texture = ExtResource( 3 )
 centered = false
 
-[node name="background2" type="Sprite" parent="backgrounds"]
+[node name="background2" type="Sprite" parent="background"]
 
 transform/scale = Vector2( 1.17647, 1.125 )
 z/z = 1
 texture = ExtResource( 4 )
 centered = false
 
-[node name="background3" type="Sprite" parent="backgrounds"]
+[node name="background3" type="Sprite" parent="background"]
 
 transform/scale = Vector2( 1.17647, 1.125 )
 z/z = 2
