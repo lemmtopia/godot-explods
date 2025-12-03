@@ -1,6 +1,6 @@
 extends Area2D
 
-const MOVE_SPEED = 350
+const MOVE_SPEED = 450
 
 var motion = Vector2(1, 0)
 

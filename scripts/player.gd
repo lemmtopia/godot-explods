@@ -6,10 +6,13 @@ const PRE_PLAYER_SHOT = preload("res://scenes/player_shot.tscn")
 const WIDTH = 26
 const HEIGHT = 21
 
-const SHOTS_MAX = 5
+const SHOTS_MAX = 3
+const FIRE_TIME_MAX = 0.1
 
 var motion = Vector2(0, 0)
 var last_fire = false
+
+var fire_time = 0
 
 signal fire_performed
 
@@ -44,12 +47,18 @@ func _process(delta):
 	motion = Vector2(move_x, move_y).normalized()
 	translate(motion * MOVE_SPEED * delta)
 	
-	if fire and not last_fire and get_tree().get_nodes_in_group("player_shot").size() < SHOTS_MAX:
+	fire_time -= delta
+	if fire and fire_time <= 0 and get_tree().get_nodes_in_group("player_shot").size() < SHOTS_MAX:
 		var shot = PRE_PLAYER_SHOT.instance()
 		get_parent().add_child(shot)
 		shot.set_global_pos(get_global_pos() + Vector2(WIDTH / 2, 0))
 		
 		get_node("flash/anim").play("shoot")
 		emit_signal("fire_performed", self)
+		
+		fire_time = FIRE_TIME_MAX
+	
+	if not fire and last_fire:
+		fire_time = 0
 	
 	last_fire = fire
