@@ -41,22 +41,47 @@ z/z = 99
 
 [node name="background" type="Node" parent="."]
 
-[node name="background1" type="Sprite" parent="background"]
+[node name="cosmos" type="Node2D" parent="background"]
 
-transform/scale = Vector2( 1.17647, 1.125 )
+[node name="background1" type="Sprite" parent="background/cosmos"]
+
 texture = ExtResource( 3 )
 centered = false
 
-[node name="background2" type="Sprite" parent="background"]
+[node name="background2" type="Sprite" parent="background/cosmos"]
 
-transform/scale = Vector2( 1.17647, 1.125 )
+transform/pos = Vector2( 272, 0 )
+texture = ExtResource( 3 )
+centered = false
+region_rect = Rect2( 272, 0, 0, 0 )
+
+[node name="background3" type="Sprite" parent="background/cosmos"]
+
+transform/pos = Vector2( 0, 160 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="background4" type="Sprite" parent="background/cosmos"]
+
+transform/pos = Vector2( 272, 160 )
+texture = ExtResource( 3 )
+centered = false
+region_rect = Rect2( 272, 0, 0, 0 )
+
+[node name="stars" type="Node2D" parent="background"]
+
+[node name="background2" type="Sprite" parent="background/stars"]
+
+transform/pos = Vector2( 21, 11 )
 z/z = 1
 texture = ExtResource( 4 )
 centered = false
 
-[node name="background3" type="Sprite" parent="background"]
+[node name="planet" type="Node2D" parent="background"]
 
-transform/scale = Vector2( 1.17647, 1.125 )
+[node name="background3" type="Sprite" parent="background/planet"]
+
+transform/pos = Vector2( 20, 20 )
 z/z = 2
 texture = ExtResource( 5 )
 centered = false
